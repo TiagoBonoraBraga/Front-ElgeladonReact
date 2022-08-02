@@ -10,8 +10,8 @@ function PaletaLista() {
   const adicionarItem = (paletaIndex) => {
     const paleta = {
       [paletaIndex]: Number(paletaSelecionada[paletaIndex] || 0) + 1,
-    }; //um objeto q recebe - [bandaindex] é a banda selecionada e o resto é q quantidade d x q foi selecionada, pega o valor atual da paleta q é 0 e vai incrementar o numero 1 a cada clicada e somando +1
-    setPaletaSelecionada({ ...paletaSelecionada, ...paleta }); //passa a paletaselecionada  e acrescenta o click, apos é só criar a config do botao abaixo e depois criar o span para modificar o valor dos clicks
+    }; 
+    setPaletaSelecionada({ ...paletaSelecionada, ...paleta }); 
   };
 
   const removerItem = (paletaIndex) => {

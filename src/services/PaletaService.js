@@ -8,7 +8,7 @@ export const PaletaService = {
     getById: (id) =>
         fetch(Api.paletaById(id), { method: "GET"}).then(parseResponse),
     create: () =>
-        fetch(Api.createpaleta(), { method: "POST"}).then(parseResponse),
+        fetch(Api.createPaleta(), { method: "POST"}).then(parseResponse),
     updateById: (id) =>
         fetch(Api.updatePaletaById(id), { method: "PUT"}).then(parseResponse),
     deleteById: (id) =>
