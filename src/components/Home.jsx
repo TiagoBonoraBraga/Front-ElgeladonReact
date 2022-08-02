@@ -1,4 +1,4 @@
-import PaletaLista from "./PaletaLista";
+import PaletaLista from "./PaletaLista/PaletaLista";
 import "./Home.css";
 function Home() {
   return (<div className="Home">
