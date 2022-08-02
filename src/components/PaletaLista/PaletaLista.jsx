@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from "react"; //importando o usestate
-
 import "./PaletaLista.css";
 import PaletaListaItem from "components/PaletaListaItem/PaletaListaItem";
 import {PaletaService} from "services/PaletaService"
+
+
 function PaletaLista() {
   const [paeltas, setPaletas] = useState([])
   const [paletaSelecionada, setPaletaSelecionada] = useState({}); 
