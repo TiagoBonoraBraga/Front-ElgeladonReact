@@ -1,10 +1,10 @@
 const PaletaContext = {
-    bandaEndpoint: () => `${Api.baseUrl}/paletas`,
-    bandaLista: () => `${PaletaContext.bandaEndpoint()}/all-paletas`,
-    bandaById: (id) => `${PaletaContext.bandaEndpoint()}/one-paleta/${id}`,
-    createBanda: () => `${PaletaContext.bandaEndpoint()}/create-paleta`,
-    updateBandaById: (id) => `${PaletaContext.bandaEndpoint()}/update-paleta/${id}`,
-    deleteBandaById: (id) => `${PaletaContext.bandaEndpoint()}/delete-paleta/${id}`,
+    paletaEndpoint: () => `${Api.baseUrl}/paletas`,
+    paletaLista: () => `${PaletaContext.bandaEndpoint()}/all-paletas`,
+    paletaById: (id) => `${PaletaContext.bandaEndpoint()}/one-paleta/${id}`,
+    createPaleta: () => `${PaletaContext.bandaEndpoint()}/create-paleta`,
+    updatePaletaById: (id) => `${PaletaContext.bandaEndpoint()}/update-paleta/${id}`,
+    deletePaletaById: (id) => `${PaletaContext.bandaEndpoint()}/delete-paleta/${id}`,
 };
 
 export const Api = {
