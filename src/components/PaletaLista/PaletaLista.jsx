@@ -5,7 +5,7 @@ import {PaletaService} from "services/PaletaService"
 
 
 function PaletaLista() {
-  const [paeltas, setPaletas] = useState([])
+  const [paletas, setPaletas] = useState([])
   const [paletaSelecionada, setPaletaSelecionada] = useState({}); 
   const adicionarItem = (paletaIndex) => {
     const paleta = {
