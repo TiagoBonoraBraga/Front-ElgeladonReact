@@ -68,10 +68,10 @@
   
   .PaletaListaItem__foto {
     height: 150px;
-    width: 60%;
-    margin-right: -5px;
-    object-fit: contain;
-    padding: .5rem;
+    /* width: 60%; */
+    margin-right: -60px;
+    
+    
         
   }
 

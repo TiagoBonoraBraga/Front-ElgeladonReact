@@ -1,5 +1,5 @@
-import React, { useState, useEffect} from "react"; //importando o usestate
 import "./PaletaLista.css";
+import  { useState, useEffect} from "react"; //importando o usestate
 import PaletaListaItem from "components/PaletaListaItem/PaletaListaItem";
 import {PaletaService} from "services/PaletaService"
 
@@ -23,7 +23,7 @@ function PaletaLista() {
 
   const getLista = async () => {
     const response = await PaletaService.getLista();
-    setPaletas(response);
+       setPaletas(response);
   }
 
   useEffect(()=>{
