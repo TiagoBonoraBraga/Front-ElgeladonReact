@@ -1,12 +1,17 @@
 import "./PaletaListaItem.css";
 
-function PaletaListaItem({paleta, quantidadeSelecionada, index, onRemove, onAdd}) {
- 
-   
+function PaletaListaItem({
+  paleta,
+  quantidadeSelecionada,
+  index,
+  onRemove,
+  onAdd,
+}) {
   const removeButton = (canRender, index) =>
     Boolean(canRender) && (
       <button className="Acoes__remover" onClick={() => onRemove(index)}>
-        remover
+        {" "}
+        remover{" "}
       </button>
     );
 
@@ -15,12 +20,14 @@ function PaletaListaItem({paleta, quantidadeSelecionada, index, onRemove, onAdd}
       <span className="PaletaListaItem__badge"> {quantidadeSelecionada} </span>
     );
   return (
-    <div className="PaletaListaItem" >
+    <div className="PaletaListaItem">
       {badgeCounter(quantidadeSelecionada, index)}
       <div>
-        <div className="PaletaListaItem__sabor">{paleta.sabor}</div>
+        <div className="PaletaListaItem__titulo">{paleta.titulo}</div>
+        <div className="PaletaListaItem__preco">
+          R$ {paleta.preco.toFixed(2)}
+        </div>
         <div className="PaletaListaItem__descricao">{paleta.descricao}</div>
-        <div className="PaletaListaItem__preco">R$ { paleta.preco.toFixed(2) }</div>        
         <div className="PaletaListaItem__acoes Acoes">
           <button
             className={`Acoes__adicionar ${
@@ -33,7 +40,11 @@ function PaletaListaItem({paleta, quantidadeSelecionada, index, onRemove, onAdd}
           {removeButton(quantidadeSelecionada, index)}
         </div>
       </div>
-      <img className="PaletaListaItem__foto" src={paleta.foto} alt={`Paleta de ${paleta.sabor}`} />
+      <img
+        className="PaletaListaItem__foto"
+        src={paleta.foto}
+        alt={`Paleta de ${paleta.sabor}`}
+      />
     </div>
   );
 }

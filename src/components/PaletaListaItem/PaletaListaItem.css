@@ -22,7 +22,7 @@
     flex-direction: column;
   }
   
-  .PaletaListaItem__sabor {
+  .PaletaListaItem__titulo {
     font-size: 1.2rem;
     font-weight: 600;
     line-height: 100%;
