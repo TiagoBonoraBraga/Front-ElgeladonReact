@@ -1,19 +1,18 @@
 import "./PaletaLista.css";
-import  { useState, useEffect} from "react"; //importando o usestate
+import { useState, useEffect } from "react"; //importando o usestate
 import PaletaListaItem from "components/PaletaListaItem/PaletaListaItem";
-import {PaletaService} from "services/PaletaService"
+import { PaletaService } from "services/PaletaService";
 import PaletaDetalhesModal from "components/PaletaDetalhesModal/PaletaDetalhesModal";
 
-
-function PaletaLista() {
-  const [paletas, setPaletas] = useState([])
-  const [paletaSelecionada, setPaletaSelecionada] = useState({}); 
+function PaletaLista({ paletaCriada }) {
+  const [paletas, setPaletas] = useState([]);
+  const [paletaSelecionada, setPaletaSelecionada] = useState({});
   const [paletaModal, setPaletaModal] = useState(false);
   const adicionarItem = (paletaIndex) => {
     const paleta = {
       [paletaIndex]: Number(paletaSelecionada[paletaIndex] || 0) + 1,
-    }; 
-    setPaletaSelecionada({ ...paletaSelecionada, ...paleta }); 
+    };
+    setPaletaSelecionada({ ...paletaSelecionada, ...paleta });
   };
 
   const removerItem = (paletaIndex) => {
@@ -25,17 +24,26 @@ function PaletaLista() {
 
   const getLista = async () => {
     const response = await PaletaService.getLista();
-       setPaletas(response);
-  }
+    setPaletas(response);
+  };
 
   const getPaletaById = async (paletaId) => {
     const response = await PaletaService.getById(paletaId);
-       setPaletaModal(response);
-  }
+    setPaletaModal(response);
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     getLista();
-  },[]);
+  }, []);
+
+  const adicionaPaletaNaLista = (paleta) => {
+    const lista = [...paletas, paleta];
+    setPaletas(lista);
+  };
+
+  useEffect(() => {
+    if (paletaCriada) adicionaPaletaNaLista(paletaCriada);
+  }, [paletaCriada]);
 
   // possue dois parametros a 1° a condição e 2° a index da banda selecionada
   //se o canRender for true ele renderiza o span senao não
@@ -43,16 +51,22 @@ function PaletaLista() {
   return (
     <div className="PaletaLista">
       {paletas.map((paleta, index) => (
-       <PaletaListaItem 
+        <PaletaListaItem
           key={`PaletaListaItem-${index}`}
           paleta={paleta}
           quantidadeSelecionada={paletaSelecionada[index]}
-          index ={index}
-          onRemove={index => removerItem(index)}
-          onAdd={index => adicionarItem(index)}
-          clickItem={(paletaId) => getPaletaById(paletaId)} />
+          index={index}
+          onRemove={(index) => removerItem(index)}
+          onAdd={(index) => adicionarItem(index)}
+          clickItem={(paletaId) => getPaletaById(paletaId)}
+        />
       ))}
-      {paletaModal && <PaletaDetalhesModal paleta={paletaModal} closeModal={()=> setPaletaModal(false)} />}
+      {paletaModal && (
+        <PaletaDetalhesModal
+          paleta={paletaModal}
+          closeModal={() => setPaletaModal(false)}
+        />
+      )}
     </div>
   );
 }
