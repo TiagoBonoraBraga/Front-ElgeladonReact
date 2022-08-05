@@ -32,14 +32,14 @@ function PaletaLista({ paletaCriada }) {
     setPaletaModal(response);
   };
 
-  useEffect(() => {
-    getLista();
-  }, []);
-
   const adicionaPaletaNaLista = (paleta) => {
     const lista = [...paletas, paleta];
     setPaletas(lista);
   };
+
+  useEffect(() => {
+    getLista();
+  }, []);
 
   useEffect(() => {
     if (paletaCriada) adicionaPaletaNaLista(paletaCriada);

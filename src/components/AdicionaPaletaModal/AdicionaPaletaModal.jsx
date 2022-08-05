@@ -12,10 +12,6 @@ function AdicionaPaletaModal({ closeModal, onCreatePaleta }) {
     foto: "",
   };
   const [state, setState] = useState(form);
-  const handleChange = (e, name) => {
-    setState({ ...state, [name]: e.target.value });
-  };
-
   const [canDisable, setCanDisable] = useState(true);
 
   const canDisableSendButton = () => {
@@ -26,6 +22,10 @@ function AdicionaPaletaModal({ closeModal, onCreatePaleta }) {
         state.preco.length
     );
     setCanDisable(response);
+  };
+
+  const handleChange = (e, name) => {
+    setState({ ...state, [name]: e.target.value });
   };
 
   useEffect(() => {
