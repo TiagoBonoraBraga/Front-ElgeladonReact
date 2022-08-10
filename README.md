@@ -1,3 +1,59 @@
+# Frontend Cardápio El-Geladon
+
+Projeto Frontend CRUD utilizando React.js, Html e Css para cadastro de Paletas Mexicanas.
+
+## Começando
+
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina para fins de desenvolvimento e teste.
+
+## Pré-requisitos
+
+Para iniciar faça a instalação das extensões:
+ -  React Developer Tools no Gogoole Chrome.
+ -  Vscode - ES7 + React/Redux/React-Native snippets
+
+## Link GitHub
+
+Faça o Fork do projeto  Frontend em: https://github.com/TiagoBonoraBraga/Front-ElgeladonReact.git
+
+Faça também se preferir o Fork da Api-Elgeladon com o backend o projeto: https://github.com/TiagoBonoraBraga/elgeladon.git
+
+O deploy da api já esta executado com link com no Frontend na pasta src/helpers/Api.js.
+
+## Iniciando o Projeto React.js
+
+ - Rode no terminal - npx create-react-app nome do projeto.
+ - Para executar o projeto use no terminal - npm start
+
+## Fotos para cadastro de Paletas
+
+- Utilize as fotos que estão na pasta public/assets/images para fazer os cadastros das paletas desejadas. 
+
+## Autor
+
+ - Ogait Ashtar
+ - ogait.desenvolvedor.jr@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
