@@ -12,7 +12,7 @@ function Home() {
     <div className="Home">
       <Navbar createPaleta={() => setCanShowAdicionaPaletaModal(true)} />
       <div className="Home__container">
-        <PaletaLista paletaCriada={paletaParaAdicionar}/>
+        <PaletaLista paletaCriada={paletaParaAdicionar} />
         {canShowAdicionaPaletaModal && (
           <AdicionaPaletaModal
             closeModal={() => setCanShowAdicionaPaletaModal(false)}
