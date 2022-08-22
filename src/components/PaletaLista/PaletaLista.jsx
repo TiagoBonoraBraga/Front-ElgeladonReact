@@ -5,7 +5,14 @@ import { PaletaService } from "services/PaletaService";
 import PaletaDetalhesModal from "components/PaletaDetalhesModal/PaletaDetalhesModal";
 import { ActionMode } from "constants/index";
 
-function PaletaLista({ paletaCriada, mode, updatePaleta, deletePaleta, paletaEditada, paletaRemovida }) {
+function PaletaLista({
+  paletaCriada,
+  mode,
+  updatePaleta,
+  deletePaleta,
+  paletaEditada,
+  paletaRemovida,
+}) {
   const [paletas, setPaletas] = useState([]);
   const [paletaSelecionada, setPaletaSelecionada] = useState({});
   const [paletaModal, setPaletaModal] = useState(false);

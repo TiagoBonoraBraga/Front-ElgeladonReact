@@ -4,14 +4,20 @@ import "./AdicionaEditaPaletaModal.css";
 import { PaletaService } from "services/PaletaService";
 import { ActionMode } from "constants/index";
 
-function AdicionaEditaPaletaModal({ closeModal, onCreatePaleta, mode, paletaToUpdate, onUpdatePaleta }) {
+function AdicionaEditaPaletaModal({
+  closeModal,
+  onCreatePaleta,
+  mode,
+  paletaToUpdate,
+  onUpdatePaleta,
+}) {
   const form = {
-    preco: paletaToUpdate?.preco ?? '',
-    sabor: paletaToUpdate?.sabor ?? '',
-    recheio: paletaToUpdate?.recheio ?? '',
-    descricao: paletaToUpdate?.descricao ?? '',
-    foto: paletaToUpdate?.foto ?? '',
-  }
+    preco: paletaToUpdate?.preco ?? "",
+    sabor: paletaToUpdate?.sabor ?? "",
+    recheio: paletaToUpdate?.recheio ?? "",
+    descricao: paletaToUpdate?.descricao ?? "",
+    foto: paletaToUpdate?.foto ?? "",
+  };
   const [state, setState] = useState(form);
   const [canDisable, setCanDisable] = useState(true);
 
@@ -50,25 +56,26 @@ function AdicionaEditaPaletaModal({ closeModal, onCreatePaleta, mode, paletaToUp
 
     const serviceCall = {
       [ActionMode.NORMAL]: () => PaletaService.create(paleta),
-      [ActionMode.ATUALIZAR]: () => PaletaService.updtateById(paletaToUpdate?.id, paleta),
-    }
+      [ActionMode.ATUALIZAR]: () =>
+        PaletaService.updtateById(paletaToUpdate?.id, paleta),
+    };
 
     const response = await serviceCall[mode]();
 
     const actionResponse = {
       [ActionMode.NORMAL]: () => onCreatePaleta(response),
       [ActionMode.ATUALIZAR]: () => onUpdatePaleta(response),
-    }
+    };
 
     actionResponse[mode]();
 
     const reset = {
-      preco: '',
-      sabor: '',
-      recheio: '',
-      descricao: '',
-      foto: '',
-    }
+      preco: "",
+      sabor: "",
+      recheio: "",
+      descricao: "",
+      foto: "",
+    };
 
     setState(reset);
     closeModal();
@@ -78,7 +85,10 @@ function AdicionaEditaPaletaModal({ closeModal, onCreatePaleta, mode, paletaToUp
     <Modal closeModal={closeModal}>
       <div className="AdicionaPaletaModal">
         <form autoComplete="off">
-          <h2>{ ActionMode.ATUALIZAR === mode ? 'Atualizar' : 'Adicionar ao' } Cardápio</h2>
+          <h2>
+            {ActionMode.ATUALIZAR === mode ? "Atualizar" : "Adicionar ao"}{" "}
+            Cardápio
+          </h2>
           <div>
             <label className="AdicionaPaletaModal__text" htmlFor="preco">
               Preço:
@@ -153,7 +163,7 @@ function AdicionaEditaPaletaModal({ closeModal, onCreatePaleta, mode, paletaToUp
             className="AdicionaPaletaModal__enviar"
             onClick={handleSend}
           >
-              { ActionMode.NORMAL === mode ? 'Enviar' : 'Atualizar' }
+            {ActionMode.NORMAL === mode ? "Enviar" : "Atualizar"}
           </button>
         </form>
       </div>
